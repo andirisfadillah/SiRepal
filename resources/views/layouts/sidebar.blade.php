@@ -4,8 +4,8 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
             <a href="#" class="logo">
-                <img src="{{ asset('assets/img/examples/sirebon.png') }}" alt="SiRebon logo" class="navbar-brand mt-3"
-                    width="180" />
+                <img src="{{ asset('assets/img/kapall.png') }}" alt="SiRebon logo" class="navbar-brand  ml-2 ms-9"
+                    width="190" />
             </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
@@ -31,7 +31,7 @@
                             <p>Beranda</p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {{ request()->is('rekening-pembayaran-retribusi*') ? 'active' : '' }}">
                         <a href="{{ route('rekening.index') }}">
                             <i class="fas fa-wallet"></i>
                             <p>Rekening Pembayaran</p>
@@ -43,14 +43,14 @@
                             <p>Kategori Retribusi</p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {{ request()->is('wajib-retribusi*') ? 'active' : '' }}">
                         <a href="{{ route('wajib-retribusi.index') }}">
                             <i class="fa fa-users" aria-hidden="true"></i>
                             <p>Wajib Retribusi</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="">
+                    <li class="nav-item {{ request()->is('kapal-wajib*') ? 'active' : ''}}">
+                        <a href="{{ route('Kapalwajib.index') }}">
                             <i class="fas fa-ship"></i>
                             <p>Kapal Wajib Retribusi</p>
                         </a>

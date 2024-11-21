@@ -21,7 +21,7 @@
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-6 text-center mb-5">
+                <div class="col-md-6 text-center mb-8">
                     <h2 class="heading-section"></h2>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                 <div class="col-md-6 col-lg-5">
                     <div class="login-wrap p-4 p-md-5">
                         <div class="icon d-flex align-items-center justify-content-center">
-                            <img src="StyleLogin/images/jangkar.png" width="80" height="80" class=""></img>
+                            <img src="StyleLogin/images/kapal.png" width="110" height="110" class=""></img>
                         </div>
                         <h3 class="text-center mb-4">SIREBON</h3>
                         <form action="{{ route('auth.login') }}" method="post">
@@ -37,9 +37,9 @@
                             <div class="form-outline mb-4">
                                 <div style="position: relative;" size="30">
                                     <i class="fa fa-user"
-                                        style="position: absolute; left: 10px; top: 10px; color: #888;"></i>
-                                    <input type="email" name="email" class="form-control form-control-lg"
-                                        placeholder="Masukkan email" size="30"
+                                        style="position: absolute; left: 10px; top: 10px; color: #000000;"></i>
+                                    <input type="text" name="username" class="form-control form-control-lg"
+                                        placeholder="Masukkan username" size="30"
                                         style="padding-left: 30px; height: 40px;" />
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                             <div class="form-outline mb-4">
                                 <div style="position: relative;" size="30">
                                     <i class="fa fa-lock"
-                                        style="position: absolute; left: 10px; top: 10px; color: #888;"></i>
+                                        style="position: absolute; left: 10px; top: 10px; color: #000000;"></i>
                                     <input type="password" name="password" class="form-control form-control-lg"
                                         placeholder="Masukkan password" size="30"
                                         style="padding-left: 30px; height: 40px;" />
@@ -85,7 +85,5 @@
     <script src="{{ asset('Login/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('Login/js/main.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-</body>+
-
+</body>
 </html>

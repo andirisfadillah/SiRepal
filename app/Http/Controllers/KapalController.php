@@ -11,12 +11,12 @@ class KapalController extends Controller
     public function index(){
         $kapal = Kapal::get();
 
-        return view('kapal.index', compact('kapal'));
+        return view('kapalku.index', compact('kapal'));
     }
     
     public function create(){
         $jenisKapal = JenisKapal::get();
-        return view('kapal.create', compact('jenisKapal'));
+        return view('kapalku.create', compact('jenisKapal'));
     }
     
     public function store(Request $request){

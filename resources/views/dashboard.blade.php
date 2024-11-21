@@ -30,7 +30,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{auth()->user()->wajibRetribusi->nama_lengkap}}">
+                                    <input type=" text" class="form-control" value="{{auth()->user()->wajibRetribusi->nama_lengkap}}">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">K    elurahan</label>
+                                <label class="col-sm-3 col-form-label">Kelurahan</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" value="{{auth()->user()->wajibRetribusi->kelurahan}}">
                                 </div>

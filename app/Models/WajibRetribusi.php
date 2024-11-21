@@ -8,14 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class WajibRetribusi extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'nama_lengkap',
-        'telepon',
-        'nik',
-        'alamat',
-        'kelurahan',
-        'status',
-        'tindaklanjut_tgl',
-        'tindaklanjut_user',
-    ];
+
+    protected $table = 'wajib_retribusis';
+    protected $fillable = ['nik', 'nama', 'no_hp', 'alamat', 'id_user'];
+
+     // Relasi ke model User
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user', 'id');
+    }
 }

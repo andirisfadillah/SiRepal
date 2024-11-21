@@ -24,6 +24,9 @@ class WajibRetribusiController extends Controller
             'nik' => 'required|numeric',
             'alamat' => 'required|max:255',
             'kelurahan' => 'required|max:255',
+            'username' => 'required|max:255',
+            'email' => 'required|max:255',
+            'password' => 'required|min:8|max:255'
         ], [
             'nama_lengkap.required' => 'Nama lengkap tidak boleh kosong!',
             'nama_lengkap.max' => 'Nama maksimal 255!',
@@ -31,11 +34,18 @@ class WajibRetribusiController extends Controller
             'telepon.numeric' => 'Nomer telepon harus di isi angka',
             'nik.required' => 'Nik  tidak boleh kosong!',
             'nik.numeric' => 'Nik  harus di isi angka',
-            'alamat.required' => 'Aalamat tidak boleh kosong!',
+            'alamat.required' => 'Alamat tidak boleh kosong!',
             'alamat.max' => 'Alamat maksimal 255!',
-            'kelurahan.required' => 'kelurahan tidak boleh kosong!',
+            'kelurahan.required' => 'Kelurahan tidak boleh kosong!',
             'kelurahan.max' => 'Kelurahan maksimal 255!',
-            
+            'username.required' => 'Username Wajib Diisi',
+            'username.max' => 'username maksimal 255',
+            'email.required' => 'Email Wajib Diisi',
+            'email.max' => 'username maksimal 255',
+            'password.required' => 'password wajib diisi',
+            'password.min' => 'Password minimal 8 karakter',
+            'password.max' => 'Password maximal255 karakter'
+
         ]);
         
         $user = new User();

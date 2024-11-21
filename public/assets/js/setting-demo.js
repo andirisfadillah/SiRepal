@@ -72,9 +72,9 @@ $(".changeBackgroundColor").on("click", function () {
 function customCheckColor() {
   var logoHeader = $(".logo-header").attr("data-background-color");
   if (logoHeader !== "white") {
-    $(".logo-header .navbar-brand").attr("src", "assets/img/examples/sirebon.png");
+    $(".logo-header .navbar-brand").attr("src", "assets/img/kapall.png");
   } else {
-    $(".logo-header .navbar-brand").attr("src", "assets/img/examples/sirebon.png");
+    $(".logo-header .navbar-brand").attr("src", "assets/img/kapall.png");
   }
 }
 
