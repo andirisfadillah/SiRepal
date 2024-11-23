@@ -4,8 +4,8 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
             <a href="#" class="logo">
-                <img src="{{ asset('assets/img/kapall.png') }}" alt="SiRebon logo" class="navbar-brand  ml-2 ms-9"
-                    width="190" />
+                <img src="{{ asset('assets/img/SiRebon.png') }}" alt="SiRebon logo" class="navbar-brand  mt-2 ml-5"
+                    width="200" />
             </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
