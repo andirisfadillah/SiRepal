@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    @if (auth()->user()->level === 'wajib')
+    @if (auth()->check() && auth()->user()->level === 'wajib')
         <div class="row">
             <div class="col">
                 <div class="card profile-card">
@@ -12,7 +12,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Username</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{auth()->user()->username}}">
+                                    <input type="text" class="form-control" value="{{ auth()->user()->username }}">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -21,36 +21,47 @@
                                     <input type="text" class="form-control" value="Administrator" readonly>
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">NIK</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{auth()->user()->wajibRetribusi->nik}}">
+
+                            @if (auth()->user()->wajibRetribusi)
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">NIK</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control"
+                                            value="{{ auth()->user()->wajibRetribusi->nik }}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Nama Lengkap</label>
-                                <div class="col-sm-9">
-                                    <input type=" text" class="form-control" value="{{auth()->user()->wajibRetribusi->nama_lengkap}}">
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Nama Lengkap</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control"
+                                            value="{{ auth()->user()->wajibRetribusi->nama_lengkap }}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Telepon</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{auth()->user()->wajibRetribusi->telepon}}">
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Telepon</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control"
+                                            value="{{ auth()->user()->wajibRetribusi->telepon }}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Alamat</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{auth()->user()->wajibRetribusi->alamat}}">
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Alamat</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control"
+                                            value="{{ auth()->user()->wajibRetribusi->alamat }}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Kelurahan</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{auth()->user()->wajibRetribusi->kelurahan}}">
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Kelurahan</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control"
+                                            value="{{ auth()->user()->wajibRetribusi->kelurahan }}">
+                                    </div>
                                 </div>
-                            </div>
+                            @else
+                                <p class="text-danger">Data wajib retribusi tidak ditemukan.</p>
+                            @endif
+
                             <button type="submit" class="btn btn-primary mt-4">Simpan</button>
                         </form>
                     </div>
@@ -90,5 +101,7 @@
                 </table>
             </form>
         </div>
+    @else
+        <p class="text-danger">Anda tidak memiliki akses ke halaman ini.</p>
     @endif
 @endsection

@@ -2,10 +2,8 @@
 
 @section('content')
     @include('layouts.alert')
-
-    <div class="container mt-4">
         @if ($isAdmin)
-            <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-2">
                 <a href="{{ route('kategori-retribusi.create') }}" class="btn btn-primary">Tambah Data</a>
             </div>
         @endif
@@ -44,5 +42,5 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
+    
 @endsection

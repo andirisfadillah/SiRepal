@@ -95,7 +95,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="">
+                        <a href="{{ route('kapal.index') }}" class="nav-link">
+                            <i class="ti-ship"></i>
+                            <p>Kapal Wajib Retribusi</p>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="{{route('Konfirmasi-pembayaran.create')}}">
                             <i class="fa fa-address-card" aria-hidden="true"></i>
                             <p>Konfirmasi Pembayaran</p>
                         </a>

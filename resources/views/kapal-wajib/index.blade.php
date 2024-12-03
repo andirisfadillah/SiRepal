@@ -1,9 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    @include('layouts.alert')
-
-    <div class="container mt-4">
+    @include('layouts.alert')    
         <div class="d-flex justify-content-between align-items-center mb-3">
             <a href="{{ route('kapal.create') }}" class="btn btn-primary">Tambah Data</a>
         </div>
@@ -42,5 +40,4 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
 @endsection

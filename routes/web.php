@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KategoriRetribusiController;
 use App\Http\Controllers\RekeningController;
+use App\Http\Controllers\KonfirmasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +67,16 @@ Route::controller(KapalController::class)->prefix('kapal')->name('kapal.')->grou
 });
 
 Route::controller(Kapalwajibcontroller::class)->prefix('Kapalwajib')->name('Kapalwajib.')->group(function(){
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/', 'store')->name('store');
+    Route::get('/{id}/edit', 'edit')->name('edit');
+    Route::put('/{id}', action: 'update')->name('update');
+    Route::delete('/{id}', 'delete')->name('delete');
+});
+
+
+Route::controller(Konfirmasicontroller::class)->prefix('Konfirmasi-pembayaran')->name('Konfirmasi-pembayaran.')->group(function(){
     Route::get('/', 'index')->name('index');
     Route::get('/create', 'create')->name('create');
     Route::post('/', 'store')->name('store');

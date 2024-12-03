@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Support\Str;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -15,7 +14,7 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name' => 'Admin Aplikasi',
+            'name' => 'Admin ',
             'username' => 'Admin',
             'level' => 'admin',
             'email' => 'admin@gmail.com',
@@ -23,7 +22,7 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(60),
         ]);
         User::create([
-            'name' => 'Wajib Retribusi',
+            'name' => ' Retribusi',
             'username' => 'Retribusi',
             'level' => 'wajib',
             'email' => 'user@gmail.com',
