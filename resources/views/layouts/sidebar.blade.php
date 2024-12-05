@@ -39,7 +39,7 @@
                     </li>
                     <li class="nav-item {{ request()->is('kategori-retribusi*') ? 'active' : '' }}">
                         <a href="{{ route('kategori-retribusi.index') }}">
-                            <i class="fas fa-exclamation"></i>
+                            <i class="fa-solid fa-anchor"></i>  
                             <p>Kategori Retribusi</p>
                         </a>
                     </li>
@@ -56,7 +56,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="">
+                        <a href="{{route('pembayaran-retribusi')}}">
                             <i class="fa fa-address-card" aria-hidden="true"></i>
                             <p>Pembayaran Retribusi</p>
                         </a>
@@ -69,7 +69,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('logout') }}">
-                            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                            <i class="fa-solid fa-right-from-bracket"></i>      
                             <p>Logout</p>
                         </a>
                     </li>
@@ -95,8 +95,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('kapal.index') }}" class="nav-link">
-                            <i class="ti-ship"></i>
+                        <a href="{{ route('Kapalwajib.index') }}" class="nav-link">
+                            <i class="fa-solid fa-sailboat"></i>
                             <p>Kapal Wajib Retribusi</p>
                         </a>
                     </li>
@@ -115,7 +115,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('logout') }}">
-                            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                            <i class="fa-solid fa-right-from-bracket"></i>      
                             <p>Logout</p>
                         </a>
                     </li>

@@ -125,7 +125,7 @@
                                 <label for="password">Password</label>
                             </div>
                             <div class="col-md-9">
-                                <input type="text" class="form-control @error('password') is-invalid @enderror"
+                                <input type="password" class="form-control @error('password') is-invalid @enderror"
                                     name="password" value="{{ old('password') }}">
                                 <div class="invalid-feedback">
                                     @error('password')

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class KapalController extends Controller
 {
     public function index(){
-        $kapal = Kapal::get();
+        $kapal = Kapal::where('id_user', auth()->user()->id)->get();
 
         return view('kapalku.index', compact('kapal'));
     }

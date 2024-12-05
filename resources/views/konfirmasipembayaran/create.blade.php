@@ -1,13 +1,15 @@
 @extends('layouts.master')
 
 @section('content')
+    @include('layouts.alert')
+
     <div class="row">
         <div class="col-md-8 offset-2">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Tambah Kategori</div>
+                    <div class="card-title">Konfirmasi Pembayaran</div>
                 </div>
-                <form action="{{ route('Konfirmasi-pembayaran.store') }}" method="post">
+                <form action="{{ route('Konfirmasi-pembayaran.store') }}" method="post" enctype="multipart/form-data">
                     <div class="card-body">
                         @csrf
                         <div class="row mt-3">
@@ -15,14 +17,14 @@
                                 <label for="nama">Jenis Bank</label>
                             </div>
                             <div class="col-md-9">
-                                <select name="jenis_bank" class="form-control @error('jenis_bank') is-invalid @enderror"
+                                <select name="id_ref_bank" class="form-control @error('id_ref_bank') is-invalid @enderror"
                                     id="">
                                     @foreach ($bank as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama_bank }}</option>
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">
-                                    @error('jenis_bank')
+                                    @error('id_ref_bank')
                                         {{ $message }}
                                     @enderror
                                 </div>
@@ -33,15 +35,16 @@
                                 <label for="nama">Nomer Rekening</label>
                             </div>
                             <div class="col-md-9">
-                                <select name="no_rekening" class="form-control @error('no_rekening') is-invalid @enderror"
-                                    id="">
+                                <select name="id_ms_rekening"
+                                    class="form-control @error('id_ms_rekening') is-invalid @enderror" id="">
                                     @foreach ($rekening as $item)
-                                        <option value="{{ $item->id }}">{{ $item->no_rekening}} - {{ $item->nama_akun }}
+                                        <option value="{{ $item->id }}">{{ $item->no_rekening }} -
+                                            {{ $item->nama_akun }}
                                         </option>
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">
-                                    @error('no_rekening')
+                                    @error('id_ms_rekening')
                                         {{ $message }}
                                     @enderror
                                 </div>
@@ -66,10 +69,10 @@
                                 <label for="nama">Bukti Pembayaran</label>
                             </div>
                             <div class="col-md-9">
-                                <input type="file" class="form-control @error('nama') is-invalid @enderror"
-                                    name="nama" value="{{ old('nama') }}">
+                                <input type="file" class="form-control @error('file_bukti') is-invalid @enderror"
+                                    name="file_bukti" value="{{ old('file_bukti') }}">
                                 <div class="invalid-feedback">
-                                    @error('nama')
+                                    @error('file_bukti')
                                         {{ $message }}
                                     @enderror
                                 </div>

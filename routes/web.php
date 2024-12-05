@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KapalController;
 use App\Http\Controllers\Kapalwajibcontroller;
+use App\Http\Controllers\Pembaayarancontroller;
 use App\Http\Controllers\WajibRetribusiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -77,10 +78,11 @@ Route::controller(Kapalwajibcontroller::class)->prefix('Kapalwajib')->name('Kapa
 
 
 Route::controller(Konfirmasicontroller::class)->prefix('Konfirmasi-pembayaran')->name('Konfirmasi-pembayaran.')->group(function(){
-    Route::get('/', 'index')->name('index');
+    
     Route::get('/create', 'create')->name('create');
     Route::post('/', 'store')->name('store');
-    Route::get('/{id}/edit', 'edit')->name('edit');
-    Route::put('/{id}', action: 'update')->name('update');
-    Route::delete('/{id}', 'delete')->name('delete');
+    Route::post('/{id}', 'status')->name('status');
+
 });
+
+Route::get('/pembayaran-retribusi', [Pembaayarancontroller::class, 'index'])->name('pembayaran-retribusi');

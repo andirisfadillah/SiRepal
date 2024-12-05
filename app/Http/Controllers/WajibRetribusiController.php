@@ -41,7 +41,7 @@ class WajibRetribusiController extends Controller
             'username.required' => 'Username Wajib Diisi',
             'username.max' => 'username maksimal 255',
             'email.required' => 'Email Wajib Diisi',
-            'email.max' => 'username maksimal 255',
+            'email.max' => 'email maksimal 255',
             'password.required' => 'password wajib diisi',
             'password.min' => 'Password minimal 8 karakter',
             'password.max' => 'Password maximal255 karakter'
@@ -94,8 +94,25 @@ class WajibRetribusiController extends Controller
             
         ]);
 
+        /*
+        $create = User::create([
+
+                            'name' => 'Hardik Savani',
+
+                            'email' => 'hardik@gmail.com',
+
+                            'password' => '123456'
+
+                        ]);
+
+  
+
+        $id_user = $create->id;
+        */
+
         $wajibRetribusi = WajibRetribusi::find($id);
 
+       // $wajibRetribusi->id_user =$id_user;
         $wajibRetribusi->nama_lengkap = $request->nama_lengkap;
         $wajibRetribusi->telepon = $request->telepon;
         $wajibRetribusi->nik = $request->nik;

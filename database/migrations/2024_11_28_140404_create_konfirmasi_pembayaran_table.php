@@ -22,8 +22,9 @@ return new class extends Migration
             $table->unsignedBigInteger('id_ref_bank');
             $table->string('no_rekening_pemilik');
             $table->string('status');
-            $table->date('tindaklanjut_tgl');
-            $table->string('tindaklanjut_user');
+            $table->date('tindaklanjut_tgl')->nullable();
+            $table->string('tindaklanjut_user')->nullable();
+            $table->integer('nominal_transfer');
         });
     }
 
