@@ -2,8 +2,8 @@
 
 @section('content')
     @include('layouts.alert')    
-        <table style="width: 100%" class="table table-bordered">
-            <thead class="table-light">
+    <table class="table table-bordered" id="datatables">
+        <thead class="table-light">
                 <tr>
                     <th class="text-center">No.</th>
                     <th class="text-center">Nama Kapal</th>
@@ -26,4 +26,9 @@
                 @endforeach
             </tbody>
         </table>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#datatables').DataTable();
+            });
+        </script>
 @endsection

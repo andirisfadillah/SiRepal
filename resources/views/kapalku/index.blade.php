@@ -8,7 +8,7 @@
             <a href="{{ route('kapal.create') }}" class="btn btn-primary">Tambah Data</a>
         </div>
 
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="datatables">
             <thead class="table-light">
                 <tr>
                     <th class="text-center" style="width: 50px;">No.</th>
@@ -42,5 +42,10 @@
                 @endforeach
             </tbody>
         </table>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#datatables').DataTable();
+            });
+        </script>
     </div>
 @endsection

@@ -84,8 +84,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('kategori-retribusi.index') }}">
-                            <i class="fas fa-exclamation"></i>
-                            <p>Kategori Retribusi</p>
+                            <i class="fa-solid fa-anchor"></i>                             <p>Kategori Retribusi</p>
                         </a>
                     </li>
                     <li class="nav-item">
