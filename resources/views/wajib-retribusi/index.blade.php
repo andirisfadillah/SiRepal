@@ -26,7 +26,7 @@
                     <tr>
                         <td scope="col" class="text-center">{{ $index + 1 }}.</td>
                         <td scope="col" class="text-center">{{ $data->nama_lengkap }}</td>
-                        <td scope="col" class="text-center">{{ $data->telpon }}</td>
+                        <td scope="col" class="text-center">{{ $data->telepon }}</td>
                         <td scope="col" class="text-center">{{ $data->nik }}</td>
                         <td scope="col" class="text-center">{{ $data->alamat }}</td>
                         <td scope="col" class="text-center">{{ $data->kelurahan }}</td>

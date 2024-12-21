@@ -21,11 +21,12 @@ class RekeningController extends Controller
     public function store(Request $request){
         $request->validate([
             'nama_akun' => 'required',
-            'no_rekening' => 'required',
+            'no_rekening' => 'required|unique:rekenings,no_rekening,',
         ], [
             'id_ref_bank.required' => 'Bank tidak boleh kosong!',
             'nama_akun.required' => 'Nama akun tidak boleh kosong!',
             'no_rekening.required' => 'No Rekening tidak boleh kosong!',
+            'no_rekening.unique' => 'No Rekening sudah terdaftar!',
         ]);
 
         $rekening = new Rekening();
@@ -46,11 +47,12 @@ class RekeningController extends Controller
         $request->validate([
             'id_ref_bank' => 'required',
             'nama_akun' => 'required',
-            'no_rekening' => 'required',
+            'no_rekening' => 'required' ,
         ], [
             'id_ref_bank.required' => 'Bank tidak boleh kosong!',
             'nama_akun.required' => 'Nama akun tidak boleh kosong!',
             'no_rekening.required' => 'No Rekening tidak boleh kosong!',
+            
         ]);
 
         $rekening = Rekening::find($id);

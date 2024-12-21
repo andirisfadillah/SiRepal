@@ -3,6 +3,8 @@
 @section('content')
     @include('layouts.alert')
 
+    
+
     <div class="row">
         <div class="col-md-8 offset-2">
             <div class="card">
@@ -70,7 +72,8 @@
                             </div>
                             <div class="col-md-9">
                                 <input type="file" class="form-control @error('file_bukti') is-invalid @enderror"
-                                    name="file_bukti" value="{{ old('file_bukti') }}">
+                                    name="file_bukti" value="{{ old('file_bukti') }}" accept="image/png, image/jpeg">
+                                    <small>File harus berformat JPG,JPEG,PNG</small>
                                 <div class="invalid-feedback">
                                     @error('file_bukti')
                                         {{ $message }}

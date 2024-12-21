@@ -18,11 +18,13 @@ return new class extends Migration
             $table->string('telepon');
             $table->string('nik');
             $table->string('alamat');
+            $table->unsignedBigInteger('id_kelurahan');
             $table->string('kelurahan');
             $table->string('status', 1)->nullable();
             $table->date('tindaklanjut_tgl')->nullable();
             $table->string('tindaklanjut_user')->nullable();            
             $table->timestamps();
+
         });
         
     }

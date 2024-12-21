@@ -25,7 +25,9 @@
             },
         });
     </script>
-    <script src="https://code.jquery.com/jquery -3.5.1.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
@@ -51,10 +53,9 @@
 
             @include('layouts.footer')
         </div>
-
     </div>
 
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+      
     {{-- <script src="{{ asset('assets/js/core/jquery-3.7.1.min.js') }}"></script> --}}
     <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
@@ -100,5 +101,4 @@
         });
     </script>
 </body>
-
 </html>

@@ -20,18 +20,28 @@ class WajibRetribusiController extends Controller
     public function store(Request $request){
         $request->validate([
             'nama_lengkap' => 'required|max:255',
-            'telepon' => 'required|numeric',
+            'telepon' => 'required|numeric|unique:wajib_retribusis,telepon',
             'nik' => 'required|numeric',
             'alamat' => 'required|max:255',
             'kelurahan' => 'required|max:255',
             'username' => 'required|max:255',
             'email' => 'required|max:255',
-            'password' => 'required|min:8|max:255'
+            'password' => [
+                'required',
+                'string',
+                'min:8',             
+                'regex:/[a-z]/',      
+                'regex:/[A-Z]/',      
+                'regex:/[0-9]/',      
+                'regex:/[@$!%*#?&]/', 
+            ],
+    
         ], [
             'nama_lengkap.required' => 'Nama lengkap tidak boleh kosong!',
             'nama_lengkap.max' => 'Nama maksimal 255!',
             'telepon.required' => 'Nomer telepon tidak boleh kosong!',
             'telepon.numeric' => 'Nomer telepon harus di isi angka',
+            'telepon.unique' => 'Nomer telepon sudah terdaftar',
             'nik.required' => 'Nik  tidak boleh kosong!',
             'nik.numeric' => 'Nik  harus di isi angka',
             'alamat.required' => 'Alamat tidak boleh kosong!',
@@ -44,6 +54,7 @@ class WajibRetribusiController extends Controller
             'email.max' => 'email maksimal 255',
             'password.required' => 'password wajib diisi',
             'password.min' => 'Password minimal 8 karakter',
+         'password.regex' => 'Password harus terdiri dari minimal 8 karakter, mengandung setidaknya satu huruf besar, satu huruf kecil, satu angka, dan satu karakter spesial.',
             'password.max' => 'Password maximal255 karakter'
 
         ]);

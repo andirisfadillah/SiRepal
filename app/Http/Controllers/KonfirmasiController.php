@@ -6,7 +6,6 @@ use App\Models\Bank;
 use App\Models\Kapal;
 use App\Models\Konfirmasipembayaran;
 use App\Models\Rekening;
-use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 
 class KonfirmasiController extends Controller
@@ -53,12 +52,12 @@ class KonfirmasiController extends Controller
     public function Status(Request $request, $id)
 {
     $validated = $request->validate([
-        'status' => 'required|in:sesuai,tidak_sesuai',
+        'status' => 'required',
     ]);
 
     $konfirmasiBayar = Konfirmasipembayaran::findOrFail($id);
 
-    $status = $validated['status'] === 'sesuai' ? 'Y' : 'N';
+    $status = $request->status;
 
     $konfirmasiBayar->status = $status;
     $konfirmasiBayar->tindaklanjut_tgl = now();
@@ -66,12 +65,30 @@ class KonfirmasiController extends Controller
     $konfirmasiBayar->save();
     if($status == 'Y'){
         $kapal = Kapal::where('id_user',$konfirmasiBayar->id_user)->whereNull('konfirmasi_bayar_id');
-
         $kapal->update([
             'konfirmasi_bayar_id' => $konfirmasiBayar->id
+        ]);
+    }else{
+        $kapal = Kapal::where('id_user',$konfirmasiBayar->id_user)->whereNotNull('konfirmasi_bayar_id');
+        $kapal->update([
+            'konfirmasi_bayar_id' => null
         ]);
     }
 
     return redirect()->back()->with('success', 'Status berhasil diperbarui.');
 }
+
+public function updateStatus(Request $request, $id)
+{
+    $request->validate([
+        'status' => 'required',
+    ]);
+
+    $pembayaran = KonfirmasiPembayaran::findOrFail($id);
+    $pembayaran->status = $request->status;
+    $pembayaran->save();
+
+    return redirect()->back()->with('success', 'Status pembayaran berhasil diperbarui.');
+}
+
 }

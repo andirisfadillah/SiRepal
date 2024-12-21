@@ -10,6 +10,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KategoriRetribusiController;
 use App\Http\Controllers\RekeningController;
 use App\Http\Controllers\KonfirmasiController;
+use App\Http\Controllers\Laporancontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,8 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 route::post('/login', [LoginController::class, 'login'])->name('auth.login');
 route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::post('/updatepassword', [DashboardController::class, 'updatepassword'])->middleware('auth')->name('Dashboard.updatepassword');
+Route::post('/updateprofile', [DashboardController::class, 'updateprofile'])->middleware('auth')->name('Dashboard.updateprofile');
 
 Route::controller(KategoriRetribusiController::class)->prefix('kategori-retribusi')->name('kategori-retribusi.')->group(function(){
     Route::get('/', 'index')->name('index');
@@ -82,7 +85,17 @@ Route::controller(Konfirmasicontroller::class)->prefix('Konfirmasi-pembayaran')-
     Route::get('/create', 'create')->name('create');
     Route::post('/', 'store')->name('store');
     Route::post('/{id}', 'status')->name('status');
+    Route::post('/konfirmasi-pembayaran/{id}/status', [Konfirmasicontroller::class, 'updateStatus'])->name('Konfirmasi-pembayaran.status');
+
 
 });
 
 Route::get('/pembayaran-retribusi', [Pembaayarancontroller::class, 'index'])->name('pembayaran-retribusi');
+
+Route::get('/laporan', [Laporancontroller::class, 'index'])->name('laporan');
+
+
+
+
+
+

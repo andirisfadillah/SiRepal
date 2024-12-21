@@ -21,11 +21,13 @@ class KategoriRetribusiController extends Controller
     
     public function store(Request $request){
         $request->validate([
-            'nama' => 'required|max:255',
+            'nama' => 'required|max:255|unique:kategori_retribusis,nama',
         ], [
             'nama.required' => 'Nama tidak boleh kosong!',
-            'nama.max' => 'Nama maksimal 255!'
+            'nama.max' => 'Nama maksimal 255 karakter!',
+            'nama.unique' => 'Nama sudah digunakan!',
         ]);
+        
 
         $kategoriRetribusi = new KategoriRetribusi();
         $kategoriRetribusi->nama = $request->nama;

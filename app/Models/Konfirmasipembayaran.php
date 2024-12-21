@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Konfirmasipembayaran extends Model
 {
@@ -23,6 +24,10 @@ class Konfirmasipembayaran extends Model
         'tindaklanjut_user',
         'nominal_transfer',
     ];
+    public function bank(): BelongsTo
+    {
+        return $this->belongsTo(bank::class, 'id_ref_bank');
+    }
 }
 
 

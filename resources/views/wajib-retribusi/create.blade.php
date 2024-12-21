@@ -32,7 +32,7 @@
                                 <label for="nama">Telepon</label>
                             </div>
                             <div class="col-md-9">
-                                <input type="number" class="form-control @error('telepon') is-invalid @enderror"
+                                <input type="text" class="form-control @error('telepon') is-invalid @enderror"
                                     name="telepon" value="{{ old('telepon') }}">
                                 <div class="invalid-feedback">
                                     @error('telepon')

@@ -8,11 +8,11 @@
                     <div class="card-body">
                         <h5 class="card-title">Profil</h5>
                         <hr>
-                        <form>
-                            <div class="row mb-3">
+                        <form action="{{ route('Dashboard.updateprofile') }}" method="post" enctype="multipart/form-data">
+                            @csrf
                                 <label class="col-sm-3 col-form-label">Username</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{ auth()->user()->username }}">
+                                    <input type="text" class="form-control" value="{{ auth()->user()->username }} " name="username">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -26,35 +26,35 @@
                                 <div class="row mb-3">
                                     <label class="col-sm-3 col-form-label">NIK</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control"
+                                        <input type="text" class="form-control" name="nik"
                                             value="{{ auth()->user()->wajibRetribusi->nik }}">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control"
+                                        <input type="text" class="form-control" name="nama lengkap"
                                             value="{{ auth()->user()->wajibRetribusi->nama_lengkap }}">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-sm-3 col-form-label">Telepon</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control"
+                                        <input type="text" class="form-control" name="telepon"
                                             value="{{ auth()->user()->wajibRetribusi->telepon }}">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-sm-3 col-form-label">Alamat</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control"
+                                        <input type="text" class="form-control" name="alamat"
                                             value="{{ auth()->user()->wajibRetribusi->alamat }}">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-sm-3 col-form-label">Kelurahan</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control"
+                                        <input type="text" class="form-control" name="kelurahan"
                                             value="{{ auth()->user()->wajibRetribusi->kelurahan }}">
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
         </div>
         <div class="container mt-5">
             <h2>Ganti Password</h2>
-            <form action="" method="POST">
+            <form action="{{ route('Dashboard.updatepassword') }}" method="POST">
                 @csrf
                 <table class="table">
                     <tr>
@@ -103,10 +103,6 @@
         </div>
     @else
         {{-- <p class="text-danger">Anda tidak memiliki akses ke halaman ini.</p> --}}
-        @extends('layouts.master')
-
-@section('content')
-    @if (auth()->user()->level == 'admin')
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
         </div>
         <div class="row">
@@ -173,7 +169,5 @@
                 </div>
             </div>
         </div>
-    @endif
-@endsection
     @endif
 @endsection
